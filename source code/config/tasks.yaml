@@ -1,0 +1,40 @@
+analyze_feedback_task:
+  description: >
+    Parse the provided raw customer feedback data:
+    "{customer_feedback}"
+    Identify top 3 recurring pain points, core feature requests, and overall user sentiment.
+  expected_output: >
+    A structured report listing pain points, sentiment summary, and candidate features.
+  agent: feedback_analyst
+
+research_competitors_task:
+  description: >
+    Using the candidate features from the feedback analysis, search for how top competitors address these needs.
+    Identify gaps and market trends.
+  expected_output: >
+    A competitor analysis summary with market opportunities and feature benchmark comparison.
+  agent: competitor_researcher
+
+prioritize_features_task:
+  description: >
+    Take candidate features and calculate RICE scores using the RICE Calculator Tool.
+    Consider engineering constraint: Total team capacity is {team_capacity_weeks} person-weeks.
+  expected_output: >
+    A ranked list of prioritized features with calculated RICE scores and rationale.
+  agent: feature_prioritizer
+
+write_prd_task:
+  description: >
+    Draft a full Product Requirement Document (PRD) in Markdown for the #1 prioritized feature.
+    Include: Executive Summary, Target Persona, Problem Statement, High-Level Solution, Functional Requirements, Metrics/KPIs.
+  expected_output: >
+    A complete PRD in Markdown format ready for engineering review.
+  agent: prd_writer
+
+plan_sprint_task:
+  description: >
+    Break down the PRD into 3-5 distinct Agile user stories using the Jira Story Formatter Tool.
+    Assign Fibonacci story points (1, 2, 3, 5, 8) and list acceptance criteria.
+  expected_output: >
+    A sprint-ready backlog formatted in clean Markdown.
+  agent: sprint_planner
